@@ -103,6 +103,24 @@ go install github.com/nicholasgasior/gws@latest
 gws auth login
 ```
 
+### Using Gspread Backend
+
+Instead of the `gws` CLI, you can use the built-in gspread backend:
+
+```bash
+pip install openclaw-crm[gspread]
+```
+
+```python
+from openclaw_crm.backends import GspreadBackend, set_backend
+
+# Using service account file
+set_backend(GspreadBackend("service-account.json"))
+
+# Or using default OAuth credentials
+set_backend(GspreadBackend())
+```
+
 ### Custom Backend
 
 Implement the `SheetsBackend` interface to use any Google Sheets library:
